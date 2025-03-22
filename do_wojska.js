@@ -59,35 +59,19 @@ function main() {
 
 }
 
-function czyPowolac(daneOsobowe) {
+
+
+function czyPowolac(daneOsobowe) {     
+
+   if(daneOsobowe['plec'] == 'M' && daneOsobowe['status_zdrowotny'] == 'zdrowy' && (daneOsobowe['kategoria_wojskowa'] == 'A' || aneOsobowe['kategoria_wojskowa'] == 'B') && daneOsobowe['sytuacja_rodzinna'] == 'kawaler') {  // zdrowy, A, M, kawaler
+       console.log('najlepszy kandydat!!');
+       return true;
+   } else {
+       console.log('średni kandydat')
+       return false;
+   } 
     
-   if(daneOsobowe['imie'] == 'Maria') {
-       return false;
-   } 
-
-   if(daneOsobowe['kategoria_wojskowa'] == 'A') {
-       return true;
-   } 
-
-   if(daneOsobowe['status_zdrowotny'] == 'zdrowy') {
-       console.log('kawaler')
-       return true;
-   } 
-
-   if(daneOsobowe['sytuacja_rodzinna'] == 'samotna_z_dzieckiem') {
-       return false;
-   } 
-
-   if(daneOsobowe['sytuacja_rodzinna'] == 'kawaler') {
-       console.log('kawaler')
-       return true;
-   } 
-
-   if(daneOsobowe['plec'] == 'M' && daneOsobowe['status_zdrowotny'] == 'zdrowy' && daneOsobowe['kategoria_wojskowa'] == 'A' && daneOsobowe['sytuacja_rodzinna'] == 'kawaler') {  // zdrowy, A, M, kawaler
-       return console.log('najlepszy kandydat!!');
-       //return true;
-   } 
-
+  
    return false; 
 
 }
