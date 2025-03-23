@@ -99,9 +99,14 @@ let kryteriumSytuacjiRodzinnej = {
 let wspolneKryterium = {
     kryteria: [ kryteriumPlci, kryteriumZdrowia, kryteriumKategorii, kryteriumSytuacjiRodzinnej ] ,  
     sprawdz: function(daneOsobowe) {
-        for(let i =0 ; i < this.kryteria.length ; i ++) {
-            console.log("i: " + this.kryteria[i].sprawdz)
+
+        for(let i = 0 ; i < this.kryteria.length ; i ++) {
+            if(this.kryteria[i].sprawdz(daneOsobowe) === false) {
+                return false;
+            }
         }
+        
+        return true;
     }      
 }
 
@@ -110,10 +115,7 @@ console.log('kryteria wspolne:'  + wspolneKryterium.kryteria);
 wspolneKryterium.sprawdz(dane[0]);
 
 let czyPowolac = function(daneOsobowe) {     
-   if( kryteriumPlci.sprawdz(daneOsobowe) 
-           && kryteriumZdrowia.sprawdz(daneOsobowe) 
-           && kryteriumKategorii.sprawdz(daneOsobowe) 
-           && kryteriumSytuacjiRodzinnej.sprawdz(daneOsobowe)) {  // zdrowy, A, M, kawaler
+   if( wspolneKryterium.sprawdz(daneOsobowe)) {  // zdrowy, A, M, kawaler
 
        console.log('najlepszy kandydat!!');
        return true;
