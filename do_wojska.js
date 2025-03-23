@@ -51,7 +51,7 @@ let main = function() {
 
     for(var i = 0 ; i < dane.length; i++ ) {
         console.log(dane[i]);
-        console.log( czyPowolac( dane[i] )) ;
+        console.log( czyPowolac( dane[i], wspolneKryterium )) ;
 
     }
 
@@ -110,12 +110,8 @@ let wspolneKryterium = {
     }      
 }
 
-console.log('kryteria wspolne:'  + wspolneKryterium.kryteria);
-
-wspolneKryterium.sprawdz(dane[0]);
-
-let czyPowolac = function(daneOsobowe) {     
-   if( wspolneKryterium.sprawdz(daneOsobowe)) {  // zdrowy, A, M, kawaler
+let czyPowolac = function(daneOsobowe, kryterium) {     
+   if( kryterium.sprawdz(daneOsobowe)) {  // zdrowy, A, M, kawaler
 
        console.log('najlepszy kandydat!!');
        return true;
