@@ -60,10 +60,35 @@ function main() {
 }
 
 
+function czyMezczyzna(daneOsobowe) {
+    return daneOsobowe['plec'] == 'M';
+}
+
+function czyWiekPoborowy(daneOsobowe) {
+// wiek >= 18  && wiek < 60 lat
+     
+}
+
+function czyOdpowiedniaKategoria(daneOsobowe) {
+    return daneOsobowe['kategoria_wojskowa'] == 'A' 
+              || daneOsobowe['kategoria_wojskowa'] == 'B';
+
+}
+
+function czyZdrowy(daneOsobowe) {
+    return daneOsobowe['status_zdrowotny'] == 'zdrowy' ;
+}
+
+function czySytuacjaRodzinna(daneOsobowe) {
+    return daneOsobowe['sytuacja_rodzinna'] == 'kawaler';
+}
 
 function czyPowolac(daneOsobowe) {     
+   if( czyMezczyzna(daneOsobowe) 
+           && czyZdrowy(daneOsobowe) 
+           && czyOdpowiedniaKategoria(daneOsobowe) 
+           && czySytuacjaRodzinna(daneOsobowe)) {  // zdrowy, A, M, kawaler
 
-   if(daneOsobowe['plec'] == 'M' && daneOsobowe['status_zdrowotny'] == 'zdrowy' && (daneOsobowe['kategoria_wojskowa'] == 'A' || aneOsobowe['kategoria_wojskowa'] == 'B') && daneOsobowe['sytuacja_rodzinna'] == 'kawaler') {  // zdrowy, A, M, kawaler
        console.log('najlepszy kandydat!!');
        return true;
    } else {
