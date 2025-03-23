@@ -69,21 +69,23 @@ function czyWiekPoborowy(daneOsobowe) {
      
 }
 
-function czyOdpowiedniaKategoria(daneOsobowe) {
+
+let czyOdpowiedniaKategoria = function(daneOsobowe) {
     return daneOsobowe['kategoria_wojskowa'] == 'A' 
               || daneOsobowe['kategoria_wojskowa'] == 'B';
 
 }
 
-function czyZdrowy(daneOsobowe) {
+let czyZdrowy = function(daneOsobowe) {
     return daneOsobowe['status_zdrowotny'] == 'zdrowy' ;
 }
 
-function czySytuacjaRodzinna(daneOsobowe) {
+let czySytuacjaRodzinna = function(daneOsobowe) {
     return daneOsobowe['sytuacja_rodzinna'] == 'kawaler';
 }
 
-function czyPowolac(daneOsobowe) {     
+
+let czyPowolac = function(daneOsobowe) {     
    if( czyMezczyzna(daneOsobowe) 
            && czyZdrowy(daneOsobowe) 
            && czyOdpowiedniaKategoria(daneOsobowe) 
