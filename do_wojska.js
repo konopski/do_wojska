@@ -45,13 +45,22 @@ var dane = [
     }
 ]
 
+let czyWojna = true;
+
+let przegrywamy = {
+    sprawdz: function(daneOsobowe) {
+        return true;
+    }
+}
+
 let main = function() {
     console.log('wywoluje main');
 
-
+    let kryt = czyWojna ? wspolneKryteriumNaCzasWojny : wspolneKryteriumNaCzasPokoju;
     for(var i = 0 ; i < dane.length; i++ ) {
         console.log(dane[i]);
-        console.log( czyPowolac( dane[i], wspolneKryterium )) ;
+       
+        console.log( czyPowolac( dane[i], kryt )) ;
 
     }
 
@@ -96,7 +105,7 @@ let kryteriumSytuacjiRodzinnej = {
     sprawdz: czySytuacjaRodzinna
 }
 
-let wspolneKryterium = {
+let wspolneKryteriumNaCzasPokoju = {
     kryteria: [ kryteriumPlci, kryteriumZdrowia, kryteriumKategorii, kryteriumSytuacjiRodzinnej ] ,  
     sprawdz: function(daneOsobowe) {
 
@@ -105,10 +114,26 @@ let wspolneKryterium = {
                 return false;
             }
         }
-        
+
         return true;
     }      
 }
+
+let wspolneKryteriumNaCzasWojny = {
+    kryteria: [ kryteriumPlci ] ,  
+    sprawdz: function(daneOsobowe) {
+
+        for(let i = 0 ; i < this.kryteria.length ; i ++) {
+            if(this.kryteria[i].sprawdz(daneOsobowe) === false) {
+                return false;
+            }
+        }
+
+        return true;
+    }      
+}
+
+
 
 let czyPowolac = function(daneOsobowe, kryterium) {     
    if( kryterium.sprawdz(daneOsobowe)) {  // zdrowy, A, M, kawaler
