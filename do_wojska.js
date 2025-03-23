@@ -77,23 +77,32 @@ let czySytuacjaRodzinna = function(daneOsobowe) {
     return daneOsobowe['sytuacja_rodzinna'] == 'kawaler';
 }
 
+//taki sam interfejs
+//kazde kryterium ma metode sprawdz(daneOsobowe)
 
-let kryteriumIdealnegoKandydata = {
-    czyMezczyzna: czyMezczyzna,
-    czyZdrowy: czyZdrowy,
-    czyOdpowiedniaKategoria: czyOdpowiedniaKategoria,
-    czySytuacjaRodzinna: czySytuacjaRodzinna
+let kryteriumPlci = {
+    sprawdz: czyMezczyzna
+}
+
+let kryteriumZdrowia = { 
+    sprawdz: czyZdrowy
+}
+
+let kryteriumKategorii = { 
+    sprawdz: czyOdpowiedniaKategoria
+}
+
+let kryteriumSytuacjiRodzinnej = { 
+    sprawdz: czySytuacjaRodzinna
 }
 
 
-console.log( 'kryteriumIdealnegoKandydata ' + kryteriumIdealnegoKandydata.czyMezczyzna(dane[0]));
-
 
 let czyPowolac = function(daneOsobowe) {     
-   if( kryteriumIdealnegoKandydata.czyMezczyzna(daneOsobowe) 
-           && czyZdrowy(daneOsobowe) 
-           && czyOdpowiedniaKategoria(daneOsobowe) 
-           && czySytuacjaRodzinna(daneOsobowe)) {  // zdrowy, A, M, kawaler
+   if( kryteriumPlci.sprawdz(daneOsobowe) 
+           && kryteriumZdrowia.sprawdz(daneOsobowe) 
+           && kryteriumKategorii.sprawdz(daneOsobowe) 
+           && kryteriumSytuacjiRodzinnej.sprawdz(daneOsobowe)) {  // zdrowy, A, M, kawaler
 
        console.log('najlepszy kandydat!!');
        return true;
