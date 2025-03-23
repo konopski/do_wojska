@@ -45,7 +45,7 @@ var dane = [
     }
 ]
 
-function main() {
+let main = function() {
     console.log('wywoluje main');
 
 
@@ -60,13 +60,8 @@ function main() {
 }
 
 
-function czyMezczyzna(daneOsobowe) {
+let czyMezczyzna= function(daneOsobowe) {
     return daneOsobowe['plec'] == 'M';
-}
-
-function czyWiekPoborowy(daneOsobowe) {
-// wiek >= 18  && wiek < 60 lat
-     
 }
 
 
