@@ -62,6 +62,9 @@ let main = function() {
        
         console.log( czyPowolac( dane[i], kryt )) ;
 
+        let p = document.getElementById('komunikat');
+        p.textContent = p.textContent + ' ' + dane[i].imie + ' ' + czyPowolac(dane[i], kryt) + ' ';
+
     }
 
     console.log('koniec main');
