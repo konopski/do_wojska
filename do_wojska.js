@@ -58,8 +58,6 @@ let main = function() {
     console.log('koniec main');
 
 }
-
-
 let czyMezczyzna= function(daneOsobowe) {
     return daneOsobowe['plec'] == 'M';
 }
@@ -80,8 +78,19 @@ let czySytuacjaRodzinna = function(daneOsobowe) {
 }
 
 
+let kryteriumIdealnegoKandydata = {
+    czyMezczyzna: czyMezczyzna,
+    czyZdrowy: czyZdrowy,
+    czyOdpowiedniaKategoria: czyOdpowiedniaKategoria,
+    czySytuacjaRodzinna: czySytuacjaRodzinna
+}
+
+
+console.log( 'kryteriumIdealnegoKandydata ' + kryteriumIdealnegoKandydata.czyMezczyzna(dane[0]));
+
+
 let czyPowolac = function(daneOsobowe) {     
-   if( czyMezczyzna(daneOsobowe) 
+   if( kryteriumIdealnegoKandydata.czyMezczyzna(daneOsobowe) 
            && czyZdrowy(daneOsobowe) 
            && czyOdpowiedniaKategoria(daneOsobowe) 
            && czySytuacjaRodzinna(daneOsobowe)) {  // zdrowy, A, M, kawaler
