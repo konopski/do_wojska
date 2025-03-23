@@ -96,7 +96,18 @@ let kryteriumSytuacjiRodzinnej = {
     sprawdz: czySytuacjaRodzinna
 }
 
+let wspolneKryterium = {
+    kryteria: [ kryteriumPlci, kryteriumZdrowia, kryteriumKategorii, kryteriumSytuacjiRodzinnej ] ,  
+    sprawdz: function(daneOsobowe) {
+        for(let i =0 ; i < this.kryteria.length ; i ++) {
+            console.log("i: " + this.kryteria[i].sprawdz)
+        }
+    }      
+}
 
+console.log('kryteria wspolne:'  + wspolneKryterium.kryteria);
+
+wspolneKryterium.sprawdz(dane[0]);
 
 let czyPowolac = function(daneOsobowe) {     
    if( kryteriumPlci.sprawdz(daneOsobowe) 
